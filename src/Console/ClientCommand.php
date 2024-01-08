@@ -12,9 +12,9 @@ class ClientCommand extends Command {
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var string|null
      */
-    protected string $signature = 'passport:client
+    protected ?string $signature = 'passport:client
             {--personal : Create a personal access token client}
             {--password : Create a password grant client}
             {--client : Create a client credentials grant client}

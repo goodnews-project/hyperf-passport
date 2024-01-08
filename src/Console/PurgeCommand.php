@@ -11,9 +11,9 @@ class PurgeCommand extends Command {
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var string|null
      */
-    protected $signature = 'passport:purge
+    protected ?string $signature = 'passport:purge
                             {--revoked : Only purge revoked tokens and authentication codes}
                             {--expired : Only purge expired tokens and authentication codes}';
 
@@ -22,7 +22,7 @@ class PurgeCommand extends Command {
      *
      * @var string
      */
-    protected $description = 'Purge revoked and / or expired tokens and authentication codes';
+    protected string $description = 'Purge revoked and / or expired tokens and authentication codes';
 
     /**
      * Execute the console command.

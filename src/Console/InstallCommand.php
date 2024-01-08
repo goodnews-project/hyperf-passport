@@ -13,14 +13,14 @@ class InstallCommand extends Command {
      * @Inject
      * @var ConfigInterface
      */
-    protected $config;
+    protected ConfigInterface $config;
 
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var string|null
      */
-    protected string $signature = 'passport:install
+    protected ?string $signature = 'passport:install
                             {--uuids : Use UUIDs for all client IDs}
                             {--force : Overwrite keys they already exist}
                             {--length=4096 : The length of the private key}';

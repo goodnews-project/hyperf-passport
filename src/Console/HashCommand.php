@@ -10,9 +10,9 @@ class HashCommand extends Command {
     /**
      * The name and signature of the console command.
      *
-     * @var string
+     * @var string|null
      */
-    protected string $signature = 'passport:hash {--force : Force the operation to run without confirmation prompt}';
+    protected ?string $signature = 'passport:hash {--force : Force the operation to run without confirmation prompt}';
 
     /**
      * The console command description.
