@@ -14,7 +14,7 @@ class ClientCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'passport:client
+    protected string $signature = 'passport:client
             {--personal : Create a personal access token client}
             {--password : Create a password grant client}
             {--client : Create a client credentials grant client}
@@ -29,7 +29,7 @@ class ClientCommand extends Command {
      *
      * @var string
      */
-    protected $description = 'Create a client for issuing access tokens';
+    protected string $description = 'Create a client for issuing access tokens';
 
     /**
      * Execute the console command.

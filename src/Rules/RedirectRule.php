@@ -42,7 +42,7 @@ class RedirectRule implements Rule {
     /**
      * {@inheritdoc}
      */
-    public function message() {
+    public function message(): array|string {
         return 'One or more redirects have an invalid url format.';
     }
 

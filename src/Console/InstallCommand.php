@@ -20,7 +20,7 @@ class InstallCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'passport:install
+    protected string $signature = 'passport:install
                             {--uuids : Use UUIDs for all client IDs}
                             {--force : Overwrite keys they already exist}
                             {--length=4096 : The length of the private key}';
@@ -30,7 +30,7 @@ class InstallCommand extends Command {
      *
      * @var string
      */
-    protected $description = 'Run the commands necessary to prepare Passport for use';
+    protected string $description = 'Run the commands necessary to prepare Passport for use';
 
     /**
      * Execute the console command.

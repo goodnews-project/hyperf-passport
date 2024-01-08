@@ -15,7 +15,7 @@ class KeysCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'passport:keys
+    protected string $signature = 'passport:keys
                                       {--force : Overwrite keys they already exist}
                                       {--length=4096 : The length of the private key}';
 
@@ -24,7 +24,7 @@ class KeysCommand extends Command {
      *
      * @var string
      */
-    protected $description = 'Create the encryption keys for API authentication';
+    protected string $description = 'Create the encryption keys for API authentication';
 
     /**
      * Execute the console command.

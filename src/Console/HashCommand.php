@@ -12,14 +12,14 @@ class HashCommand extends Command {
      *
      * @var string
      */
-    protected $signature = 'passport:hash {--force : Force the operation to run without confirmation prompt}';
+    protected string $signature = 'passport:hash {--force : Force the operation to run without confirmation prompt}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Hash all of the existing secrets in the clients table';
+    protected string $description = 'Hash all of the existing secrets in the clients table';
 
     /**
      * Execute the console command.
