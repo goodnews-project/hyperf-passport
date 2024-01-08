@@ -1,0 +1,16 @@
+{
+    "name": "gzh/hyperf-passport",
+    "description": "Hyperf Passport provides OAuth2 server support to Hyperf",
+    "autoload": {
+        "psr-4": {
+            "Gzh\\HyperfPassport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "gzh",
+            "email": "gzh19881116@163.com"
+        }
+    ],
+    "require": {}
+}
