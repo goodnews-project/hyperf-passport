@@ -10,12 +10,12 @@ class PassportUserProvider implements ExtendUserProvider {
     /**
      * @var array
      */
-    protected $config;
+    protected array $config;
 
     /**
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     public function __construct(array $config, string $name) {
         $this->config = $config;
@@ -39,7 +39,7 @@ class PassportUserProvider implements ExtendUserProvider {
     /**
      * {@inheritdoc}
      */
-    public function retrieveByCredentials($credentials) {
+    public function retrieveByCredentials($credentials): ?Authenticatable {
         return call_user_func_array([$this->config['model'], 'retrieveById'], [$credentials]);
     }
 
