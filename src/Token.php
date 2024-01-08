@@ -11,35 +11,35 @@ class Token extends Model {
      *
      * @var string
      */
-    protected $table = 'oauth_access_tokens';
+    protected string $table = 'oauth_access_tokens';
 
     /**
      * The "type" of the primary key ID.
      *
      * @var string
      */
-    protected $keyType = 'string';
+    protected string $keyType = 'string';
 
     /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = false;
+    public bool $incrementing = false;
 
     /**
      * The guarded attributes on the model.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected array $guarded = [];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'scopes' => 'array',
         'revoked' => 'bool',
     ];
@@ -49,7 +49,7 @@ class Token extends Model {
      *
      * @var array
      */
-    protected $dates = [
+    protected array $dates = [
         'expires_at',
     ];
 
@@ -58,7 +58,7 @@ class Token extends Model {
      *
      * @var bool
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * Get the client that the token belongs to.

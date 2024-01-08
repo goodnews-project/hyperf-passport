@@ -13,21 +13,21 @@ class Client extends Model {
      *
      * @var string
      */
-    protected $table = 'oauth_clients';
+    protected string $table = 'oauth_clients';
 
     /**
      * The guarded attributes on the model.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected array $guarded = [];
 
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = [
+    protected array $hidden = [
         'secret',
     ];
 
@@ -36,7 +36,7 @@ class Client extends Model {
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'grant_types' => 'array',
         'personal_access_client' => 'bool',
         'password_client' => 'bool',
@@ -48,7 +48,7 @@ class Client extends Model {
      *
      * @var string|null
      */
-    protected $plainSecret;
+    protected ?string $plainSecret;
 
     /**
      * Bootstrap the model and its traits.

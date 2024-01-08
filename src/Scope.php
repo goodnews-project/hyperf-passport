@@ -12,14 +12,14 @@ class Scope implements Arrayable, Jsonable {
      *
      * @var string
      */
-    public $id;
+    public string $id;
 
     /**
      * The scope description.
      *
      * @var string
      */
-    public $description;
+    public string $description;
 
     /**
      * Create a new scope instance.

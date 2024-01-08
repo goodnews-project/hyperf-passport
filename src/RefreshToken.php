@@ -11,35 +11,35 @@ class RefreshToken extends Model {
      *
      * @var string
      */
-    protected $table = 'oauth_refresh_tokens';
+    protected string $table = 'oauth_refresh_tokens';
 
     /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = false;
+    public bool $incrementing = false;
 
     /**
      * The "type" of the primary key ID.
      *
      * @var string
      */
-    protected $keyType = 'string';
+    protected string $keyType = 'string';
 
     /**
      * The guarded attributes on the model.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected array $guarded = [];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'revoked' => 'bool',
     ];
 
@@ -48,7 +48,7 @@ class RefreshToken extends Model {
      *
      * @var array
      */
-    protected $dates = [
+    protected array $dates = [
         'expires_at',
     ];
 
@@ -57,7 +57,7 @@ class RefreshToken extends Model {
      *
      * @var bool
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * Get the access token that the refresh token belongs to.

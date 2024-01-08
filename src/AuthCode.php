@@ -11,28 +11,28 @@ class AuthCode extends Model {
      *
      * @var string
      */
-    protected $table = 'oauth_auth_codes';
+    protected string $table = 'oauth_auth_codes';
 
     /**
      * Indicates if the IDs are auto-incrementing.
      *
      * @var bool
      */
-    public $incrementing = false;
+    public bool $incrementing = false;
 
     /**
      * The guarded attributes on the model.
      *
      * @var array
      */
-    protected $guarded = [];
+    protected array $guarded = [];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = [
+    protected array $casts = [
         'revoked' => 'bool',
     ];
 
@@ -41,7 +41,7 @@ class AuthCode extends Model {
      *
      * @var array
      */
-    protected $dates = [
+    protected array $dates = [
         'expires_at',
     ];
 
@@ -50,14 +50,14 @@ class AuthCode extends Model {
      *
      * @var bool
      */
-    public $timestamps = false;
+    public bool $timestamps = false;
 
     /**
      * The "type" of the primary key ID.
      *
      * @var string
      */
-    protected $keyType = 'string';
+    protected string $keyType = 'string';
 
     /**
      * Get the client that owns the authentication code.
