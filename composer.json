@@ -29,8 +29,8 @@
     "require": {
         "php": "^7.3|^8.0",
         "ext-json": "*",
-        "96qbhy/hyperf-auth": "^2.3",
-        "firebase/php-jwt": "^5.0",
+        "96qbhy/hyperf-auth": "^3.0",
+        "firebase/php-jwt": "^6.8",
         "guzzlehttp/guzzle": "^6.0|^7.0",
         "hyperf-ext/cookie": "~2.2.0",
         "hyperf-ext/encryption": "~2.2.0",
