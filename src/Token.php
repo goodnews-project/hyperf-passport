@@ -9,9 +9,9 @@ class Token extends Model {
     /**
      * The database table used by the model.
      *
-     * @var string
+     * @var string|null
      */
-    protected string $table = 'oauth_access_tokens';
+    protected ?string $table = 'oauth_access_tokens';
 
     /**
      * The "type" of the primary key ID.

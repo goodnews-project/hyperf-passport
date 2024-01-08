@@ -11,9 +11,9 @@ class Client extends Model {
     /**
      * The database table used by the model.
      *
-     * @var string
+     * @var string|null
      */
-    protected string $table = 'oauth_clients';
+    protected ?string $table = 'oauth_clients';
 
     /**
      * The guarded attributes on the model.
