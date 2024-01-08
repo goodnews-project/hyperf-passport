@@ -36,10 +36,9 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface {
      * @param  \Psr\EventDispatcher\EventDispatcherInterface  $events
      * @return void
      */
-    public function __construct(TokenRepository $tokenRepository, EventDispatcherInterface $events, AuthManager $auth) {
+    public function __construct(TokenRepository $tokenRepository, EventDispatcherInterface $events) {
         $this->events = $events;
         $this->tokenRepository = $tokenRepository;
-        $this->auth = $auth;
     }
 
     /**
@@ -68,12 +67,6 @@ class AccessTokenRepository implements AccessTokenRepositoryInterface {
                         $accessTokenEntity->getUserIdentifier(),
                         $accessTokenEntity->getClient()->getIdentifier()
         ));
-//        $provider = $accessTokenEntity->getClient()->provider;
-//        $model = config('auth.providers.' . $provider . '.model');
-//        //var_dump($model);
-//        $user = (new $model)->where('id', $accessTokenEntity->getUserIdentifier())->first();
-//        //var_dump($user);
-//        $this->auth->guard('passport')->login($user);
     }
 
     /**
