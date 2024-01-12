@@ -1,7 +1,7 @@
 # gzh/hyperf-passport
 
-hyperf 的 hyperf-passport 组件，支持对多种用户进行登录授权支持Oauth2.0的四种授权模式，目前密码授权模式已完全可用。
-本组件clone richard/hyperf-passport。
+hyperf 的 hyperf-passport 组件，支持对多种用户进行登录授权支持Oauth2.0的四种授权模式，目前密码/authcode授权模式已完全可用。
+本组件基于 richard/hyperf-passport 修改以兼容hyperf3.0/php8。
 
 ## 安装前的准备 - before install
 
@@ -64,7 +64,7 @@ return [
 
 ```bash
 $ composer require gzh/hyperf-passport
-php bin/hyperf.php vendor:publish richard/hyperf-passport
+php bin/hyperf.php vendor:publish gzh/hyperf-passport
 ```
 
 ## 配置 - configuration
