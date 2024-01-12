@@ -18,7 +18,7 @@ trait RetrievesAuthRequestFromSession {
     protected function assertValidAuthToken(Request $request) {
         if ($request->has('auth_token') && $this->session->get('authToken') !== $request->input('auth_token')) {
             $this->session->forget(['authToken', 'authRequest']);
-            $exception = new \Richard\HyperfPassport\Exception\PassportException('The provided auth token for the request is different from the session auth token.');
+            $exception = new \Richard\HyperfPassport\Exception\PassportException('The provided auth token['.$request->input('auth_token').'] for the request is different from the session auth token['.$this->session->get('authToken').'].');
             $exception->setStatusCode(400);
             throw $exception;
         }
