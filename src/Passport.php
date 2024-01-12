@@ -23,7 +23,7 @@ class Passport {
      *
      * @var string
      */
-    public $defaultScope;
+    public $defaultScope = 'read write follow push';
 
     /**
      * All of the scopes defined for the application.
@@ -31,7 +31,10 @@ class Passport {
      * @var array
      */
     public $scopes = [
-            //
+        'read' => 'Full read access to your account',
+        'write' => 'Full write access to your account',
+        'follow' => 'Ability to follow other profiles',
+        'push'  => ''
     ];
 
     /**

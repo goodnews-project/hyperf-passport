@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Richard\HyperfPassport;
 
+use App\Service\Mastodon\BearerTokenResponse;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
@@ -141,7 +142,8 @@ class AuthorizationServerFactory {
                 make(\Richard\HyperfPassport\Bridge\AccessTokenRepository::class),
                 make(\Richard\HyperfPassport\Bridge\ScopeRepository::class),
                 $this->makeCryptKey('private'),
-                $this->config->get('passport.key', 'E3Wxizr8gUXuBuyG7CecmGX9E9lbRzdFmqQpG2yP85eDuXzqOj')
+                $this->config->get('passport.key', 'E3Wxizr8gUXuBuyG7CecmGX9E9lbRzdFmqQpG2yP85eDuXzqOj'),
+                new BearerTokenResponse()
         );
     }
 

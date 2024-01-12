@@ -18,7 +18,8 @@ class PassportAuthMiddleware implements MiddlewareInterface {
      * @Inject
      * @var \Richard\HyperfPassport\AuthManager
      */
-    protected $auth;
+    #[Inject]
+    protected \Richard\HyperfPassport\AuthManager $auth;
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface {
         foreach ($this->guards as $name) {

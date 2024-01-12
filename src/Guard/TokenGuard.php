@@ -351,12 +351,12 @@ class TokenGuard implements ExtendAuthGuard {
     }
 
     public function login(Authenticatable $user) {
-        \Hyperf\Utils\Context::set('user', $user);
+        \Hyperf\Context\Context::set('user', $user);
         return $this;
     }
 
     public function logout() {
-        \Hyperf\Utils\Context::set('user', null);
+        \Hyperf\Context\Context::set('user', null);
         return $this;
     }
 
@@ -366,7 +366,7 @@ class TokenGuard implements ExtendAuthGuard {
      * @return bool
      */
     public function hasUser() {
-        return \Hyperf\Utils\Context::has('user');
+        return \Hyperf\Context\Context::has('user');
     }
 
     /**

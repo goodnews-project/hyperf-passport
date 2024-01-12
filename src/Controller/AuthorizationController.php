@@ -6,6 +6,7 @@ use Hyperf\Di\Annotation\Inject;
 use Hyperf\View\Render;
 use Hyperf\HttpServer\Request;
 use Hyperf\Utils\Str;
+use League\OAuth2\Server\CryptTrait;
 use Richard\HyperfPassport\Bridge\User;
 use Richard\HyperfPassport\ClientRepository;
 use Richard\HyperfPassport\Passport;
@@ -25,7 +26,8 @@ class AuthorizationController {
      * @Inject
      * @var \Hyperf\Contract\ConfigInterface
      */
-    protected $config;
+    #[Inject]
+    protected \Hyperf\Contract\ConfigInterface $config;
 
     /**
      * The authorization server.
@@ -80,7 +82,7 @@ class AuthorizationController {
         $scopes = $this->parseScopes($authRequest);
 
         $token = $tokens->findValidToken(
-                $user = $this->auth->guard('passport')->user(),
+                $user = $this->auth->guard()->user(),
                 $client = $clients->find($authRequest->getClient()->getIdentifier())
         );
 
@@ -93,7 +95,6 @@ class AuthorizationController {
         $this->session->set('authToken', $authToken);
         $this->session->set('authRequest', $authRequest);
         $appname = $this->config->get('app_name');
-
         return $this->render->render('passport.authorize', [
                     'client' => $client,
                     'user' => $user,
@@ -101,6 +102,7 @@ class AuthorizationController {
                     'request' => $request,
                     'authToken' => $authToken,
                     'appname' => $appname,
+                    'token' => $request->input('token')
         ]);
     }
 

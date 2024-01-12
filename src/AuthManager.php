@@ -18,7 +18,8 @@ class AuthManager extends QbhyAuthManager {
      * @Inject
      * @var \Hyperf\HttpServer\Contract\RequestInterface
      */
-    protected $serverRequest;
+    #[Inject]
+    protected \Hyperf\HttpServer\Contract\RequestInterface $serverRequest;
 
     /**
      * @throws GuardException

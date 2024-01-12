@@ -37,9 +37,9 @@ class DispatcherFactory extends Dispatcher {
     public function forAuthorization() {
         Router::addGroup('/oauth', function (RouteCollector $router) {// need web auth middleware
             $router->addRoute('GET', '/authorize', '\Richard\HyperfPassport\Controller\AuthorizationController@authorize');
-            $router->addRoute('POST', '/authorize', '\Richard\HyperfPassport\Controller\ApproveAuthorizationController@approve');
-            $router->addRoute('DELETE', '/authorize', '\Richard\HyperfPassport\Controller\DenyAuthorizationController@deny');
-        });
+            $router->addRoute('POST', '/authorize/approve', '\Richard\HyperfPassport\Controller\ApproveAuthorizationController@approve');
+            $router->addRoute('POST', '/authorize/deny', '\Richard\HyperfPassport\Controller\DenyAuthorizationController@deny');
+        }, ['middleware' => [\App\Middleware\OAuthOrRedirectToLoginMiddleware::class]]);
     }
 
     /**
