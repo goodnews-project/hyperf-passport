@@ -21,7 +21,7 @@ trait ConvertsPsrResponses {
             $exception->setStatusCode(400);
             throw $exception;
         }
-//        var_dump(json_decode($content->__toString(), true));
+        var_dump(json_decode($content->__toString(), true));
         $content = (string) $content;
         $response = new Response();
         return $response->withHeaders($headers)->withStatus($statusCode)->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream($content));

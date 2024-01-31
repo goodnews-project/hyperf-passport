@@ -2,7 +2,9 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
 use Hyperf\HttpMessage\Server\Response;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Richard\HyperfPassport\TokenRepository;
 use League\OAuth2\Server\AuthorizationServer;
 use Nyholm\Psr7\Response as Psr7Response;
@@ -46,9 +48,10 @@ class AccessTokenController {
      * @return \Hyperf\HttpMessage\Server\Response
      */
     public function issueToken(ServerRequestInterface $request) {
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         return $this->withErrorHandling(function () use ($request) {
                     return $this->convertResponse(
-                                    $this->server->respondToAccessTokenRequest($request, new Psr7Response)
+                                    $this->server->respondToAccessTokenRequest($request, $response)
                     );
                 });
     }

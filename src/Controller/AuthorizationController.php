@@ -2,7 +2,9 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
 use Hyperf\Di\Annotation\Inject;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\View\Render;
 use Hyperf\HttpServer\Request;
 use Hyperf\Utils\Str;
@@ -94,6 +96,7 @@ class AuthorizationController {
         $authToken = Str::random();
         $this->session->set('authToken', $authToken);
         $this->session->set('authRequest', $authRequest);
+        $this->session->all();
         $appname = $this->config->get('app_name');
         return $this->render->render('passport.authorize', [
                     'client' => $client,
@@ -129,13 +132,14 @@ class AuthorizationController {
      * @return  \Hyperf\HttpMessage\Server\Response
      */
     protected function approveRequest($authRequest, $user) {
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         $authRequest->setUser(new User($user->getKey()));
 
         $authRequest->setAuthorizationApproved(true);
 
         return $this->withErrorHandling(function () use ($authRequest) {
                     return $this->convertResponse(
-                                    $this->server->completeAuthorizationRequest($authRequest, new Psr7Response)
+                                    $this->server->completeAuthorizationRequest($authRequest, $response)
                     );
                 });
     }

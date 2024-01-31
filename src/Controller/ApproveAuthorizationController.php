@@ -2,7 +2,9 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
 use Hyperf\HttpMessage\Server\Response;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use League\OAuth2\Server\AuthorizationServer;
 use Nyholm\Psr7\Response as Psr7Response;
 use Hyperf\Contract\SessionInterface;
@@ -46,12 +48,13 @@ class ApproveAuthorizationController {
      * @return \Hyperf\HttpMessage\Server\Response
      */
     public function approve(Request $request) {
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         $this->assertValidAuthToken($request);
 
         $authRequest = $this->getAuthRequestFromSession($request);
 
         return $this->convertResponse(
-                        $this->server->completeAuthorizationRequest($authRequest, new Psr7Response)
+                        $this->server->completeAuthorizationRequest($authRequest, $response)
         );
     }
 

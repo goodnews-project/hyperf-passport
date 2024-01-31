@@ -2,6 +2,8 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\HttpServer\Request;
 use Hyperf\HttpMessage\Server\Response;
 use Richard\HyperfPassport\RefreshTokenRepository;
@@ -65,13 +67,13 @@ class AuthorizedAccessTokenController {
      * @return \Hyperf\HttpMessage\Server\Response
      */
     public function destroy(Request $request, $tokenId) {
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         $user = $this->auth->guard('passport')->user();
         $token = $this->tokenRepository->findForUser(
                 $tokenId, $user->getKey()
         );
 
         if (is_null($token)) {
-            $response = new Response();
             return $response->withStatus(404)->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream(''));
         }
 
@@ -79,7 +81,6 @@ class AuthorizedAccessTokenController {
 
         $this->refreshTokenRepository->revokeRefreshTokensByAccessTokenId($tokenId);
 
-        $response = new Response();
         return $response->withStatus(204)->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream(''));
     }
 

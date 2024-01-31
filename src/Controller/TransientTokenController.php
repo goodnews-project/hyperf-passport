@@ -2,6 +2,8 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\HttpServer\Request;
 use Hyperf\HttpMessage\Server\Response;
 use Richard\HyperfPassport\ApiTokenCookieFactory;
@@ -43,7 +45,7 @@ class TransientTokenController {
      * @return \Hyperf\HttpMessage\Server\Response
      */
     public function refresh(Request $request) {
-        $response = new Response();
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         $user = $this->auth->guard('passport')->user();
         return $response->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream('Refreshed.'))
                         ->withCookie($this->cookieFactory->make(

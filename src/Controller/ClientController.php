@@ -2,6 +2,8 @@
 
 namespace Richard\HyperfPassport\Controller;
 
+use Hyperf\Context\ApplicationContext;
+use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\Validation\ValidatorFactoryFactory as ValidationFactory;
 use Hyperf\HttpServer\Request;
 use Hyperf\HttpMessage\Server\Response;
@@ -138,17 +140,16 @@ class ClientController {
      * @return \Hyperf\HttpMessage\Server\Response
      */
     public function destroy(Request $request, $clientId) {
+        $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
         $user = $this->auth->guard('passport')->user();
         $client = $this->clients->findForUser($clientId, $user->getKey());
 
         if (!$client) {
-            $response = new Response();
             return $response->withStatus(404)->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream(''));
         }
 
         $this->clients->delete($client);
-
-        $response = new Response();
+        
         return $response->withStatus(204)->withBody(new \Hyperf\HttpMessage\Stream\SwooleStream(''));
     }
 
