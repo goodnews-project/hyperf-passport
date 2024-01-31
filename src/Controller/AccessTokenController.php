@@ -49,7 +49,7 @@ class AccessTokenController {
      */
     public function issueToken(ServerRequestInterface $request) {
         $response = ApplicationContext::getContainer()->get(ResponseInterface::class);
-        return $this->withErrorHandling(function () use ($request) {
+        return $this->withErrorHandling(function () use ($request, $response) {
                     return $this->convertResponse(
                                     $this->server->respondToAccessTokenRequest($request, $response)
                     );

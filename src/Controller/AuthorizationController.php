@@ -137,7 +137,7 @@ class AuthorizationController {
 
         $authRequest->setAuthorizationApproved(true);
 
-        return $this->withErrorHandling(function () use ($authRequest) {
+        return $this->withErrorHandling(function () use ($authRequest, $response) {
                     return $this->convertResponse(
                                     $this->server->completeAuthorizationRequest($authRequest, $response)
                     );
