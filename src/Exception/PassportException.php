@@ -16,7 +16,7 @@ use Qbhy\HyperfAuth\AuthGuard;
 use Throwable;
 use Qbhy\HyperfAuth\Exception\AuthException;
 use League\OAuth2\Server\Exception\OAuthServerException;
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 
 class PassportException extends AuthException {
 

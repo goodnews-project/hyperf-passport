@@ -4,7 +4,7 @@ namespace Richard\HyperfPassport\Controller;
 
 use Hyperf\HttpServer\Response;
 use Hyperf\HttpServer\Request;
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 use Hyperf\Contract\SessionInterface;
 use Qbhy\HyperfAuth\AuthManager;
 

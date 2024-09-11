@@ -25,7 +25,6 @@ class PassportAuthMiddleware implements MiddlewareInterface {
         foreach ($this->guards as $name) {
             $guard = $this->auth->guard($name);
 
-            //var_dump($guard->user());
             if (!$guard->user() instanceof Authenticatable) {
                 throw new \Richard\HyperfPassport\Exception\PassportException("Without authorization from {$guard->getName()} guard", $guard);
             }

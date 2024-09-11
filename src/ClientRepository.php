@@ -2,7 +2,7 @@
 
 namespace Richard\HyperfPassport;
 
-use Hyperf\Utils\Str;
+use Hyperf\Stringable\Str;
 use RuntimeException;
 
 class ClientRepository {

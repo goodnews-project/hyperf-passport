@@ -3,6 +3,7 @@
 namespace Richard\HyperfPassport\Console;
 
 use Hyperf\Command\Command;
+use Hyperf\Context\ApplicationContext;
 use Richard\HyperfPassport\Client;
 use Richard\HyperfPassport\ClientRepository;
 use Richard\HyperfPassport\Passport;
@@ -196,10 +197,10 @@ class ClientCommand extends Command {
     }
 
 	protected function genUrl(string $toUrl) {
-            if (! \Hyperf\Utils\ApplicationContext::hasContainer() || \Hyperf\Utils\Str::startsWith($toUrl, ['http://', 'https://'])) {
+            if (! ApplicationContext::hasContainer() || \Hyperf\Stringable\Str::startsWith($toUrl, ['http://', 'https://'])) {
                 return $toUrl;
             }
-            return 'http://localhost' . (\Hyperf\Utils\Str::startsWith($toUrl, '/') ? $toUrl : '/' . $toUrl);
+            return 'http://localhost' . (\Hyperf\Stringable\Str::startsWith($toUrl, '/') ? $toUrl : '/' . $toUrl);
         }
 
 }

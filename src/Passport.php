@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport;
 use Carbon\Carbon;
 use DateInterval;
 use DateTimeInterface;
+use Hyperf\Collection\Collection;
 use League\OAuth2\Server\ResourceServer;
 use Mockery;
 use Psr\Http\Message\ServerRequestInterface;
@@ -189,7 +190,7 @@ class Passport {
     /**
      * Get all of the scopes defined for the application.
      *
-     * @return \Hyperf\Utils\Collection
+     * @return Collection
      */
     public function scopes() {
         return collect($this->scopes)->map(function ($description, $id) {

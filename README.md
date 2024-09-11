@@ -404,7 +404,7 @@ class DemoController extends AbstractController {
      */
     public function index(RequestInterface $request, ResponseInterface $response) {
         $user = $this->auth->guard('passport')->user();
-        //var_dump($user);
+       
         $userId = (int) $user->getId();
         return ['user_id' => $userId];
     }

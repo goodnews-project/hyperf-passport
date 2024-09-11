@@ -7,7 +7,7 @@ use Hyperf\Di\Annotation\Inject;
 use Hyperf\HttpServer\Contract\ResponseInterface;
 use Hyperf\View\Render;
 use Hyperf\HttpServer\Request;
-use Hyperf\Utils\Str;
+use Hyperf\Stringable\Str;
 use League\OAuth2\Server\CryptTrait;
 use Richard\HyperfPassport\Bridge\User;
 use Richard\HyperfPassport\ClientRepository;

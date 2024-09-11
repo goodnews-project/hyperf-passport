@@ -56,7 +56,6 @@ class PassportUserProvider implements ExtendUserProvider {
      * @return string
      */
     public function getProviderName() {
-        //var_dump($this->name);
         return $this->name;
     }
 

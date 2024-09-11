@@ -3,7 +3,7 @@
 namespace Richard\HyperfPassport;
 
 use Hyperf\DbConnection\Model\Model;
-use Hyperf\Utils\Str;
+use Hyperf\Stringable\Str;
 use Hyperf\Database\Model\Events\Creating;
 
 class Client extends Model {

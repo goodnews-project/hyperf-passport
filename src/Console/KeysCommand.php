@@ -3,7 +3,7 @@
 namespace Richard\HyperfPassport\Console;
 
 use Hyperf\Command\Command;
-use Hyperf\Utils\Arr;
+use Hyperf\Collection\Arr;
 use Richard\HyperfPassport\Passport;
 use phpseclib\Crypt\RSA as LegacyRSA;
 use phpseclib3\Crypt\RSA;
