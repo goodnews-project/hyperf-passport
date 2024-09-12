@@ -12,10 +12,10 @@ PHP>=7.3
 $ composer require 96qbhy/hyperf-auth
 $ php bin/hyperf.php vendor:publish 96qbhy/hyperf-auth
 #加密依赖包
-$ composer require hyperf-ext/encryption
-$ php bin/hyperf.php vendor:publish hyperf-ext/encryption
-$ composer require hyperf-ext/hashing
-$ php bin/hyperf.php vendor:publish hyperf-ext/hashing
+$ composer require goodnews/hyperf-encryption
+$ php bin/hyperf.php vendor:publish goodnews/hyperf-encryption
+$ composer require goodnews/hyperf-hashing
+$ php bin/hyperf.php vendor:publish goodnews/hyperf-hashing
 #模板引擎和视图
 $ composer require hyperf/view-engine
 $ composer require hyperf/view

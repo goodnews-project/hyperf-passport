@@ -1,5 +1,5 @@
 {
-    "name": "gzh/hyperf-passport",
+    "name": "goodnews/hyperf-passport",
     "type": "library",
     "license": "MIT",
     "keywords": [
@@ -9,8 +9,8 @@
     "description": "Hyperf Passport provides OAuth2 server support to Hyperf",
     "authors": [
         {
-            "name": "gzh",
-            "email": "gzh19881116@163.com"
+            "name": "goodnews",
+            "email": "admin@good.news"
         }
     ],
     "autoload": {
