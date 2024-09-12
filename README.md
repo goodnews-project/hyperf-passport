@@ -1,4 +1,4 @@
-# gzh/hyperf-passport
+# goodnews/hyperf-passport
 
 hyperf 的 hyperf-passport 组件，支持对多种用户进行登录授权支持Oauth2.0的四种授权模式，目前密码/authcode授权模式已完全可用。
 本组件基于 richard/hyperf-passport 修改以兼容hyperf3.0/php8。
