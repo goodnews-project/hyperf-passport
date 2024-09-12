@@ -11,6 +11,7 @@ use Richard\HyperfPassport\ClientRepository;
 use Richard\HyperfPassport\Rules\RedirectRule;
 use Richard\HyperfPassport\Passport;
 use Qbhy\HyperfAuth\AuthManager;
+use function Hyperf\Support\make;
 
 class ClientController {
 

@@ -6,6 +6,7 @@ use Hyperf\Command\Command;
 use Richard\HyperfPassport\Passport;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Contract\ConfigInterface;
+use function Hyperf\Support\make;
 
 class InstallCommand extends Command {
 

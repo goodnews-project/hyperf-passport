@@ -7,6 +7,7 @@ use Firebase\JWT\JWT;
 use Hyperf\Contract\ConfigInterface as Config;
 use HyperfExt\Encryption\EncryptionManager;
 use Symfony\Component\HttpFoundation\Cookie;
+use function Hyperf\Support\make;
 
 class ApiTokenCookieFactory {
 

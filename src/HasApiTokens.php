@@ -3,6 +3,7 @@
 namespace Richard\HyperfPassport;
 
 use Hyperf\Di\Container;
+use function Hyperf\Support\make;
 
 trait HasApiTokens {
 

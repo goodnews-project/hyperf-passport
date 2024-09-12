@@ -4,6 +4,7 @@ namespace Richard\HyperfPassport\Console;
 
 use Hyperf\Command\Command;
 use Richard\HyperfPassport\Passport;
+use function Hyperf\Support\make;
 
 class HashCommand extends Command {
 

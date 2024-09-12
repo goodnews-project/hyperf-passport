@@ -16,6 +16,7 @@ use League\OAuth2\Server\Grant\ImplicitGrant;
 use League\OAuth2\Server\CryptKey;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
+use function Hyperf\Support\make;
 
 class AuthorizationServerFactory {
 

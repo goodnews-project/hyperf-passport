@@ -7,6 +7,7 @@ use Hyperf\HttpMessage\Server\Response;
 use Richard\HyperfPassport\ApiTokenCookieFactory;
 use Hyperf\Contract\SessionInterface;
 use Qbhy\HyperfAuth\AuthManager;
+use function Hyperf\Support\make;
 
 class CreateFreshApiToken {
 

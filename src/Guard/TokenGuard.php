@@ -19,6 +19,7 @@ use Richard\HyperfPassport\Contracts\ExtendAuthGuard;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Qbhy\HyperfAuth\Authenticatable;
 use Qbhy\HyperfAuth\UserProvider;
+use function Hyperf\Support\make;
 
 class TokenGuard implements ExtendAuthGuard {
 

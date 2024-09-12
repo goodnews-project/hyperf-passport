@@ -7,6 +7,7 @@ use Hyperf\Collection\Arr;
 use Richard\HyperfPassport\Passport;
 use phpseclib\Crypt\RSA as LegacyRSA;
 use phpseclib3\Crypt\RSA;
+use function Hyperf\Support\make;
 
 class KeysCommand extends Command {
 

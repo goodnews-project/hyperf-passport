@@ -1,6 +1,7 @@
 <?php
 
 namespace Richard\HyperfPassport;
+use function Hyperf\Support\make;
 
 class RefreshTokenRepository {
 

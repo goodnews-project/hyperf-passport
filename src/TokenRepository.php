@@ -3,6 +3,7 @@
 namespace Richard\HyperfPassport;
 
 use Carbon\Carbon;
+use function Hyperf\Support\make;
 
 class TokenRepository {
 

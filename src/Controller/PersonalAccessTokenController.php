@@ -10,6 +10,7 @@ use Hyperf\HttpMessage\Server\Response;
 use Richard\HyperfPassport\Passport;
 use Richard\HyperfPassport\TokenRepository;
 use Qbhy\HyperfAuth\AuthManager;
+use function Hyperf\Support\make;
 
 class PersonalAccessTokenController {
 

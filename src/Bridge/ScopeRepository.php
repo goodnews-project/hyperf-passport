@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport\Bridge;
 use Richard\HyperfPassport\Passport;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
+use function Hyperf\Support\make;
 
 class ScopeRepository implements ScopeRepositoryInterface {
 

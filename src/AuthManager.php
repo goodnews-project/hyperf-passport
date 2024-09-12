@@ -11,6 +11,7 @@ use Qbhy\HyperfAuth\AuthManager as QbhyAuthManager;
 use Qbhy\HyperfAuth\AuthGuard;
 use Qbhy\HyperfAuth\UserProvider;
 use Hyperf\Di\Annotation\Inject;
+use function Hyperf\Support\make;
 
 class AuthManager extends QbhyAuthManager {
 

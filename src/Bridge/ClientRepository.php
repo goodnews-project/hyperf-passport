@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport\Bridge;
 use Richard\HyperfPassport\Passport;
 use Richard\HyperfPassport\ClientRepository as ClientModelRepository;
 use League\OAuth2\Server\Repositories\ClientRepositoryInterface;
+use function Hyperf\Support\make;
 
 class ClientRepository implements ClientRepositoryInterface {
 

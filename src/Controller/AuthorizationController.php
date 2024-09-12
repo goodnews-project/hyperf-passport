@@ -19,6 +19,7 @@ use Nyholm\Psr7\Response as Psr7Response;
 use Psr\Http\Message\ServerRequestInterface;
 use Qbhy\HyperfAuth\AuthManager;
 use Hyperf\Contract\ConfigInterface;
+use function Hyperf\Support\make;
 
 class AuthorizationController {
 

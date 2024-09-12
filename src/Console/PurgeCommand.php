@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport\Console;
 use Hyperf\Command\Command;
 use Carbon\Carbon;
 use Richard\HyperfPassport\Passport;
+use function Hyperf\Support\make;
 
 class PurgeCommand extends Command {
 

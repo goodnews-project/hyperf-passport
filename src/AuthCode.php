@@ -3,6 +3,7 @@
 namespace Richard\HyperfPassport;
 
 use Hyperf\DbConnection\Model\Model;
+use function Hyperf\Support\make;
 
 class AuthCode extends Model {
 

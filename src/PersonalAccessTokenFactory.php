@@ -7,6 +7,7 @@ use League\OAuth2\Server\AuthorizationServer;
 use Nyholm\Psr7\Response;
 use Nyholm\Psr7\ServerRequest;
 use Psr\Http\Message\ServerRequestInterface;
+use function Hyperf\Support\make;
 
 class PersonalAccessTokenFactory {
 

@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport\Bridge;
 use Richard\HyperfPassport\Passport;
 use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 use League\OAuth2\Server\Repositories\AuthCodeRepositoryInterface;
+use function Hyperf\Support\make;
 
 class AuthCodeRepository implements AuthCodeRepositoryInterface {
 

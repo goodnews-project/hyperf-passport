@@ -9,6 +9,7 @@ use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;
 use League\OAuth2\Server\ResourceServer;
 use League\OAuth2\Server\CryptKey;
+use function Hyperf\Support\make;
 
 class ResourceServerFactory {
 
