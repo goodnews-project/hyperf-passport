@@ -63,8 +63,8 @@ return [
 
 
 ```bash
-$ composer require gzh/hyperf-passport
-php bin/hyperf.php vendor:publish gzh/hyperf-passport
+$ composer require goodnews/hyperf-passport
+php bin/hyperf.php vendor:publish goodnews/hyperf-passport
 ```
 
 ## 配置 - configuration
