@@ -4,6 +4,8 @@ namespace Richard\HyperfPassport;
 
 use Hyperf\DbConnection\Model\Model;
 use function Hyperf\Support\make;
+use function Hyperf\Config\config;
+
 
 class PersonalAccessClient extends Model {
 

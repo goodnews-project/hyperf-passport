@@ -7,6 +7,7 @@ use League\OAuth2\Server\Repositories\UserRepositoryInterface;
 use RuntimeException;
 use Hyperf\Di\Annotation\Inject;
 use HyperfExt\Hashing\HashManager as HashingHashManager;
+use function Hyperf\Config\config;
 
 class UserRepository implements UserRepositoryInterface {
 

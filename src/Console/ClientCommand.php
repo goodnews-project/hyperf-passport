@@ -8,6 +8,7 @@ use Richard\HyperfPassport\Client;
 use Richard\HyperfPassport\ClientRepository;
 use Richard\HyperfPassport\Passport;
 use function Hyperf\Support\make;
+use function Hyperf\Config\config;
 
 class ClientCommand extends Command {
 

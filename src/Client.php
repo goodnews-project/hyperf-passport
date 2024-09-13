@@ -6,6 +6,7 @@ use Hyperf\DbConnection\Model\Model;
 use Hyperf\Stringable\Str;
 use Hyperf\Database\Model\Events\Creating;
 use function Hyperf\Support\make;
+use function Hyperf\Config\config;
 
 class Client extends Model {
 
