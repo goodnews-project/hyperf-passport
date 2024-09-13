@@ -4,6 +4,7 @@ namespace Richard\HyperfPassport\Controller;
 
 use Hyperf\HttpServer\Request;
 use Richard\HyperfPassport\Bridge\User;
+use function Hyperf\Tappable\tap;
 
 trait RetrievesAuthRequestFromSession {
 

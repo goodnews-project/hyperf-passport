@@ -5,6 +5,7 @@ namespace Richard\HyperfPassport;
 use Hyperf\Stringable\Str;
 use RuntimeException;
 use function Hyperf\Support\make;
+use function Hyperf\Tappable\tap;
 
 class ClientRepository {
 

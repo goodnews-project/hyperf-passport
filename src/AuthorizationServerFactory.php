@@ -17,6 +17,7 @@ use League\OAuth2\Server\CryptKey;
 use League\OAuth2\Server\Grant\ClientCredentialsGrant;
 use League\OAuth2\Server\Repositories\RefreshTokenRepositoryInterface;
 use function Hyperf\Support\make;
+use function Hyperf\Tappable\tap;
 
 class AuthorizationServerFactory {
 
