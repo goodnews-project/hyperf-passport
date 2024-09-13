@@ -7,6 +7,8 @@ use Richard\HyperfPassport\Passport;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Contract\ConfigInterface;
 use function Hyperf\Support\make;
+use function Hyperf\Config\config;
+
 
 class InstallCommand extends Command {
 
@@ -57,8 +59,8 @@ class InstallCommand extends Command {
      * @return void
      */
     protected function configureUuids() {
-        $this->call('vendor:publish', ['package' => 'gzh/hyperf-passport', '--id' => 'config', '--force']);
-        $this->call('vendor:publish', ['package' => 'gzh/hyperf-passport', '--id' => 'migrations', '--force']);
+        $this->call('vendor:publish', ['package' => 'goodnews/hyperf-passport', '--id' => 'config', '--force']);
+        $this->call('vendor:publish', ['package' => 'goodnews/hyperf-passport', '--id' => 'migrations', '--force']);
         $passport = make(\Richard\HyperfPassport\Passport::class);
         $this->config->set('passport.client_uuids', true);
         $passport->setClientUuids(true);
