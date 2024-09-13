@@ -10,6 +10,7 @@ use League\OAuth2\Server\ResourceServer;
 use Mockery;
 use Psr\Http\Message\ServerRequestInterface;
 use function Hyperf\Config\config;
+use function Hyperf\Collection\collect;
 
 class Passport {
 

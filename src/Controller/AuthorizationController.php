@@ -20,6 +20,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Qbhy\HyperfAuth\AuthManager;
 use Hyperf\Contract\ConfigInterface;
 use function Hyperf\Support\make;
+use function Hyperf\Collection\collect;
 
 class AuthorizationController {
 

@@ -6,6 +6,7 @@ use Richard\HyperfPassport\Passport;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
 use function Hyperf\Support\make;
+use function Hyperf\Collection\collect;
 
 class ScopeRepository implements ScopeRepositoryInterface {
 
