@@ -28,7 +28,8 @@
     },
     "require": {
         "php": "^7.3|^8.0",
-        "ext-json": "*"
+        "ext-json": "*",
+        "phpseclib/phpseclib": "^2。0|^3.0"
     },
     "prefer-stable": true,
     "config": {
