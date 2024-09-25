@@ -67,7 +67,7 @@ class AuthorizationController {
     }
 
     /**
-     * Authorize a client to access the user's account.
+     * Authorize a client to access the user's account .
      *
      * @param  \Psr\Http\Message\ServerRequestInterface  $psrRequest
      * @param  \Hyperf\HttpServer\Request  $request
