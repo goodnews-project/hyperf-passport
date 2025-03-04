@@ -27,9 +27,29 @@
         }
     },
     "require": {
-        "php": "^7.3|^8.0",
+        "php": ">=8.0",
         "ext-json": "*",
-        "phpseclib/phpseclib": "^2.0|^3.0"
+        "96qbhy/hyperf-auth": "^3.1",
+        "firebase/php-jwt": "^6.8",
+        "goodnews/hyperf-cookie": "*",
+        "goodnews/hyperf-encryption": "*",
+        "goodnews/hyperf-hashing": "*",
+        "hyperf/command": "^3.1",
+        "hyperf/contract": "^3.1",
+        "hyperf/database": "^3.1",
+        "hyperf/db-connection": "^3.1",
+        "hyperf/di": "^3.1",
+        "hyperf/framework": "^3.1",
+        "hyperf/guzzle": "^3.1",
+        "hyperf/http-message": "^3.1",
+        "hyperf/http-server": "^3.1",
+        "hyperf/redis": "^3.1",
+        "hyperf/session": "^3.1",
+        "hyperf/validation": "^3.1",
+        "hyperf/view": "^3.1",
+        "hyperf/view-engine": "^3.1",
+        "league/oauth2-server": "^9.2",
+        "phpseclib/phpseclib": "^3.0"
     },
     "prefer-stable": true,
     "config": {

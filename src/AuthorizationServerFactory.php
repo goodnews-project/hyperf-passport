@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Richard\HyperfPassport;
 
-use App\Service\Mastodon\BearerTokenResponse;
+use Richard\HyperfPassport\BearerTokenResponse;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Contract\ConfigInterface;
 use Psr\Container\ContainerInterface;

@@ -1,27 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Richard\HyperfPassport\Bridge;
 
-use Richard\HyperfPassport\Passport;
 use League\OAuth2\Server\Entities\AuthCodeEntityInterface;
 use League\OAuth2\Server\Repositories\AuthCodeRepositoryInterface;
+use Richard\HyperfPassport\Passport;
+
 use function Hyperf\Support\make;
 
-class AuthCodeRepository implements AuthCodeRepositoryInterface {
-
+class AuthCodeRepository implements AuthCodeRepositoryInterface
+{
     use FormatsScopesForStorage;
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getNewAuthCode() {
-        return new AuthCode;
+    public function getNewAuthCode(): AuthCodeEntityInterface
+    {
+        return new AuthCode();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function persistNewAuthCode(AuthCodeEntityInterface $authCodeEntity) {
+    public function persistNewAuthCode(AuthCodeEntityInterface $authCodeEntity): void
+    {
         $attributes = [
             'id' => $authCodeEntity->getIdentifier(),
             'user_id' => $authCodeEntity->getUserIdentifier(),
@@ -30,24 +29,19 @@ class AuthCodeRepository implements AuthCodeRepositoryInterface {
             'revoked' => false,
             'expires_at' => $authCodeEntity->getExpiryDateTime(),
         ];
-        $passport = make(\Richard\HyperfPassport\Passport::class);
+        $passport = make(Passport::class);
         $passport->authCode()->forceFill($attributes)->save();
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function revokeAuthCode($codeId) {
-        $passport = make(\Richard\HyperfPassport\Passport::class);
+    public function revokeAuthCode($codeId): void
+    {
+        $passport = make(Passport::class);
         $passport->authCode()->where('id', $codeId)->update(['revoked' => true]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isAuthCodeRevoked($codeId) {
-        $passport = make(\Richard\HyperfPassport\Passport::class);
+    public function isAuthCodeRevoked($codeId): bool
+    {
+        $passport = make(Passport::class);
         return $passport->authCode()->where('id', $codeId)->where('revoked', 1)->exists();
     }
-
 }

@@ -1,40 +1,43 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Richard\HyperfPassport\Bridge;
 
-use Richard\HyperfPassport\Passport;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
+use League\OAuth2\Server\Entities\ScopeEntityInterface;
 use League\OAuth2\Server\Repositories\ScopeRepositoryInterface;
-use function Hyperf\Support\make;
+use Richard\HyperfPassport\Passport;
+
 use function Hyperf\Collection\collect;
+use function Hyperf\Support\make;
 
-class ScopeRepository implements ScopeRepositoryInterface {
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getScopeEntityByIdentifier($identifier) {
-        $passport = make(\Richard\HyperfPassport\Passport::class);
+class ScopeRepository implements ScopeRepositoryInterface
+{
+    public function getScopeEntityByIdentifier($identifier): ?ScopeEntityInterface
+    {
+        $passport = make(Passport::class);
         if ($passport->hasScope($identifier)) {
             return new Scope($identifier);
         }
+        return null;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function finalizeScopes(
-            array $scopes, $grantType,
-            ClientEntityInterface $clientEntity, $userIdentifier = null) {
-        if (!in_array($grantType, ['password', 'personal_access', 'client_credentials'])) {
+        array $scopes,
+        $grantType,
+        ClientEntityInterface $clientEntity,
+        $userIdentifier = null,
+        ?string $authCodeId = null
+    ): array {
+        if (! in_array($grantType, ['password', 'personal_access', 'client_credentials'])) {
             $scopes = collect($scopes)->reject(function ($scope) {
-                        return trim($scope->getIdentifier()) === '*';
-                    })->values()->all();
+                return trim($scope->getIdentifier()) === '*';
+            })->values()->all();
         }
-        $passport = make(\Richard\HyperfPassport\Passport::class);
+        $passport = make(Passport::class);
         return collect($scopes)->filter(function ($scope) use ($passport) {
-                    return $passport->hasScope($scope->getIdentifier());
-                })->values()->all();
+            return $passport->hasScope($scope->getIdentifier());
+        })->values()->all();
     }
-
 }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Richard\HyperfPassport\Bridge;
 
 use DateInterval;
@@ -9,14 +11,11 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class PersonalAccessGrant extends AbstractGrant
 {
-    /**
-     * {@inheritdoc}
-     */
     public function respondToAccessTokenRequest(
         ServerRequestInterface $request,
         ResponseTypeInterface $responseType,
         DateInterval $accessTokenTTL
-    ) {
+    ): ResponseTypeInterface {
         // Validate request
         $client = $this->validateClient($request);
         $scopes = $this->validateScopes($this->getRequestParameter('scope', $request));
@@ -26,8 +25,10 @@ class PersonalAccessGrant extends AbstractGrant
 
         // Issue and persist access token
         $accessToken = $this->issueAccessToken(
-            $accessTokenTTL, $client,
-            $this->getRequestParameter('user_id', $request), $scopes
+            $accessTokenTTL,
+            $client,
+            $this->getRequestParameter('user_id', $request),
+            $scopes
         );
 
         // Inject access token into response type
@@ -36,10 +37,7 @@ class PersonalAccessGrant extends AbstractGrant
         return $responseType;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getIdentifier()
+    public function getIdentifier(): string
     {
         return 'personal_access';
     }

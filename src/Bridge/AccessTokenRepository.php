@@ -1,86 +1,75 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Richard\HyperfPassport\Bridge;
 
 use DateTime;
-use Psr\EventDispatcher\EventDispatcherInterface;
-use Richard\HyperfPassport\TokenRepository;
-use Richard\HyperfPassport\Event\AccessTokenCreated;
 use League\OAuth2\Server\Entities\AccessTokenEntityInterface;
 use League\OAuth2\Server\Entities\ClientEntityInterface;
 use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
-use Richard\HyperfPassport\AuthManager;
+use Psr\EventDispatcher\EventDispatcherInterface;
+use Richard\HyperfPassport\Event\AccessTokenCreated;
+use Richard\HyperfPassport\TokenRepository;
 
-class AccessTokenRepository implements AccessTokenRepositoryInterface {
-
+class AccessTokenRepository implements AccessTokenRepositoryInterface
+{
     use FormatsScopesForStorage;
 
     /**
      * The token repository instance.
      *
-     * @var \Richard\HyperfPassport\TokenRepository
+     * @var TokenRepository
      */
     protected $tokenRepository;
 
     /**
      * The event dispatcher instance.
      *
-     * @var \Psr\EventDispatcher\EventDispatcherInterface
+     * @var EventDispatcherInterface
      */
     protected $events;
 
     /**
      * Create a new repository instance.
-     *
-     * @param  \Richard\HyperfPassport\TokenRepository  $tokenRepository
-     * @param  \Psr\EventDispatcher\EventDispatcherInterface  $events
-     * @return void
      */
-    public function __construct(TokenRepository $tokenRepository, EventDispatcherInterface $events) {
+    public function __construct(TokenRepository $tokenRepository, EventDispatcherInterface $events)
+    {
         $this->events = $events;
         $this->tokenRepository = $tokenRepository;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getNewToken(ClientEntityInterface $clientEntity, array $scopes, $userIdentifier = null) {
+    public function getNewToken(ClientEntityInterface $clientEntity, array $scopes, $userIdentifier = null): AccessTokenEntityInterface
+    {
         return new AccessToken($userIdentifier, $scopes, $clientEntity);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function persistNewAccessToken(AccessTokenEntityInterface $accessTokenEntity) {
+    public function persistNewAccessToken(AccessTokenEntityInterface $accessTokenEntity): void
+    {
         $this->tokenRepository->create([
             'id' => $accessTokenEntity->getIdentifier(),
             'user_id' => $accessTokenEntity->getUserIdentifier(),
             'client_id' => $accessTokenEntity->getClient()->getIdentifier(),
             'scopes' => $this->scopesToArray($accessTokenEntity->getScopes()),
             'revoked' => false,
-            'created_at' => (new DateTime)->format('Y-m-d H:i:s'),
-            'updated_at' => (new DateTime)->format('Y-m-d H:i:s'),
+            'created_at' => (new DateTime())->format('Y-m-d H:i:s'),
+            'updated_at' => (new DateTime())->format('Y-m-d H:i:s'),
             'expires_at' => $accessTokenEntity->getExpiryDateTime(),
         ]);
         $this->events->dispatch(new AccessTokenCreated(
-                        $accessTokenEntity->getIdentifier(),
-                        $accessTokenEntity->getUserIdentifier(),
-                        $accessTokenEntity->getClient()->getIdentifier()
+            $accessTokenEntity->getIdentifier(),
+            $accessTokenEntity->getUserIdentifier(),
+            $accessTokenEntity->getClient()->getIdentifier()
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function revokeAccessToken($tokenId) {
+    public function revokeAccessToken($tokenId): void
+    {
         $this->tokenRepository->revokeAccessToken($tokenId);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function isAccessTokenRevoked($tokenId) {
+    public function isAccessTokenRevoked($tokenId): bool
+    {
         return $this->tokenRepository->isAccessTokenRevoked($tokenId);
     }
-
 }
