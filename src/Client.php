@@ -24,6 +24,9 @@ class Client extends Model {
      */
     protected array $guarded = [];
 
+    public bool $incrementing = false;
+    protected string $keyType = 'string';
+
     /**
      * The attributes excluded from the model's JSON form.
      *
